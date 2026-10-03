@@ -1,0 +1,9 @@
+.venv
+.git
+runs
+data
+testbed/tabular_credit/data
+.superpowers
+.claude
+__pycache__
+*.pyc

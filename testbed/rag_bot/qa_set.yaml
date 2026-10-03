@@ -1,0 +1,13 @@
+items:
+  - {q: "When is my bill due?", a: "On the 5th of each month."}
+  - {q: "How long do refunds take?", a: "Refunds are processed within 14 days of approval."}
+  - {q: "Which payment methods do you accept?", a: "Cards, PayPal and SEPA direct debit."}
+  - {q: "How much is the late fee?", a: "5 EUR, charged 7 days after the due date."}
+  - {q: "Where can I download my invoice?", a: "As a PDF in the customer portal under Billing."}
+  - {q: "How do I change my billing address?", a: "In the customer portal under Settings, then Address."}
+  - {q: "Can I pay in instalments?", a: "Large invoices can be split into up to 3 instalments via support."}
+  - {q: "Do paper invoices cost extra?", a: "Yes, 2 EUR per mailed invoice."}
+  - {q: "How long does a SEPA mandate take to activate?", a: "Up to 3 working days."}
+  - {q: "Can I defer my payment?", a: "Support can defer payment by up to 2 weeks, on request before the due date."}
+  - {q: "How do I update my email address?", a: "In Settings, then Contact details."}
+  - {q: "Who decides on goodwill credits?", a: "The support team, case by case."}

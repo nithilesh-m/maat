@@ -1,0 +1,24 @@
+profile_version: 1
+name: testbed-t3-seeded
+system_type: tabular_ml
+description: Predicts whether annual income exceeds 50k USD (ACSIncome), used as a stand-in for a credit pre-screening model
+intended_use: pre-screening of loan applicants
+users: [credit officers]
+deployment_region: [EU]
+declared_risk_tier: high
+annex_iii_category: "5(b)"
+target:
+  adapter: tabular
+  model_family: sklearn
+tabular:
+  dataset: testbed/tabular_credit/data/seeded/test.csv
+  label_column: PINCP
+  model_file: testbed/tabular_credit/data/seeded/model.joblib
+  train_dataset: testbed/tabular_credit/data/seeded/train.csv
+  reference_dataset: testbed/tabular_credit/data/seeded/reference.csv
+  feature_columns: [AGEP, SCHL, WKHP, SEX, RAC1P, name_score]
+artifacts:
+  docs: []
+sensitive_attributes: [SEX, RAC1P]
+data_egress: local_only
+sandbox_allowed: true

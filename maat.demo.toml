@@ -1,0 +1,26 @@
+# Single-model demo: one small local model plays every role (24 GB laptop).
+# Judges share the target's family, so runs need --allow-same-family-judges (ablation flag):
+# this is NOT a valid test of the cross-family rule, only a demonstration of the pipeline.
+profile = "demo"
+llm_mode = "live"
+
+[models.demo]
+orchestrator = "ollama:llama3.2:3b"
+specialists  = "ollama:llama3.2:3b"
+judges       = ["ollama:llama3.2:3b"]
+tool_llm     = "ollama:llama3.2:3b"
+guard        = "ollama:llama3.2:3b"
+embeddings   = "ollama:nomic-embed-text"
+
+[ollama]
+base_url = "http://localhost:11434"
+temperature = 0
+seed = 42
+num_predict = 1024
+keep_alive = "30m"
+timeout = 600
+
+[budgets]
+max_tool_calls_per_agent = 10
+max_llm_calls_per_agent = 14
+max_retries = 1

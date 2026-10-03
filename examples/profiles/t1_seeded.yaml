@@ -1,0 +1,21 @@
+profile_version: 1
+name: testbed-t1-seeded
+system_type: rag
+description: Answers billing questions for retail customers of ExampleShop
+intended_use: customer billing support
+users: [retail customers, support staff]
+deployment_region: [EU, IN]
+declared_risk_tier: limited
+target:
+  adapter: testbed
+  config: testbed/rag_bot/variants/t1_seeded.yaml
+  model: mistral-small3.2
+  model_family: mistral
+  returns_context: true
+artifacts:
+  docs: []
+  corpus: testbed/rag_bot/corpus
+  qa_set: testbed/rag_bot/qa_set.yaml
+sensitive_attributes: [gender, age, nationality]
+data_egress: local_only
+sandbox_allowed: false

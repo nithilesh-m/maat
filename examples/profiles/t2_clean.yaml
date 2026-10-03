@@ -1,0 +1,22 @@
+profile_version: 1
+name: testbed-t2-clean
+system_type: rag
+description: Answers billing questions for retail customers of ExampleShop
+intended_use: customer billing support
+users: [retail customers, support staff]
+deployment_region: [EU, IN]
+declared_risk_tier: limited
+target:
+  adapter: testbed
+  config: testbed/rag_bot/variants/t2_clean.yaml
+  model: llama3.1:8b
+  model_family: llama
+  returns_context: true
+artifacts:
+  docs: [testbed/docs/t1_model_card.md, testbed/docs/t1_oversight.md]
+  logs: testbed/logs/t1_sample.jsonl
+  corpus: testbed/rag_bot/corpus
+  qa_set: testbed/rag_bot/qa_set.yaml
+sensitive_attributes: [gender, age, nationality]
+data_egress: local_only
+sandbox_allowed: false

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MAAT audit report {{ bundle.header.run_id }}</title>
+<style>
+  @page { size: A4; margin: 18mm 15mm 22mm 15mm;
+    @bottom-center { content: "Bundle {{ bundle.header.bundle_id }} · revision {{ bundle.header.revision }} · verify with maat verify"; font-size: 7pt; color: #555; } }
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 10pt; color: #1b1f24; line-height: 1.4; }
+  h1 { font-size: 20pt; margin: 0 0 4px; } h2 { font-size: 13pt; margin: 22px 0 6px; border-bottom: 1px solid #ccd; padding-bottom: 2px; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0; } th, td { border: 1px solid #d0d4da; padding: 3px 6px; text-align: left; vertical-align: top; font-size: 9pt; }
+  th { background: #f1f3f6; } code { font-family: ui-monospace, Menlo, monospace; font-size: 8.5pt; }
+  .banner { padding: 8px 12px; border-radius: 4px; font-weight: 600; margin: 10px 0; }
+  .valid { background: #e3f4e6; color: #14532d; border: 1px solid #86c99a; } .invalid { background: #fde8e8; color: #7f1d1d; border: 1px solid #e59a9a; }
+  .block, .fail { color: #b42318; font-weight: 600; } .pass { color: #067647; font-weight: 600; } .waive, .abstain { color: #b54708; font-weight: 600; }
+  .muted { color: #5b6470; }
+</style>
+</head>
+<body>
+<h1>MAAT audit report</h1>
+<p class="muted">Multi-Agent AI Audit and Trust Framework</p>
+
+<table>
+  <tr><th>Bundle</th><td><code>{{ bundle.header.bundle_id }}</code></td></tr>
+  <tr><th>Run</th><td><code>{{ bundle.header.run_id }}</code></td></tr>
+  <tr><th>Revision</th><td>{{ bundle.header.revision }}{% if bundle.header.previous_bundle_id %} (previous <code>{{ bundle.header.previous_bundle_id }}</code>){% endif %}</td></tr>
+  <tr><th>Status</th><td>{{ bundle.status }}</td></tr>
+  <tr><th>Target</th><td><code>{{ bundle.header.target_ref }}</code></td></tr>
+  <tr><th>Risk tier</th><td>{{ bundle.header.tier.value }}</td></tr>
+  <tr><th>Created</th><td>{{ bundle.header.created_at }}</td></tr>
+  <tr><th>Signers</th><td>{% for s in bundle.header.signers %}<code>{{ s }}</code><br>{% endfor %}</td></tr>
+</table>
+
+{% if verify.ok %}
+<div class="banner valid">VALID: ledger hash chain, signatures, artifacts and bundle verified at render time ({{ verify.records }} records).</div>
+{% else %}
+<div class="banner invalid">INVALID: this bundle did not verify at render time.
+  <ul>{% for p in verify.problems %}<li>{{ p }}</li>{% endfor %}</ul></div>
+{% endif %}
+
+<h2>Executive summary</h2>
+<table>
+  <tr><th>Regime</th><th>CC (clause coverage)</th><th>AS (adequacy score)</th><th>MER (measured-evidence ratio)</th></tr>
+  {% for reg, v in views.items() %}
+  <tr><td>{{ reg }}</td><td>{{ "%.3f"|format(v.cc) }}</td><td>{{ "%.3f"|format(v["as"]) }}</td><td>{{ "%.3f"|format(v.mer) }}</td></tr>
+  {% else %}
+  <tr><td colspan="4">No controls in this bundle map to the configured regimes.</td></tr>
+  {% endfor %}
+</table>
+<table>
+  <tr><th>Dimension</th><th>Adequacy score</th></tr>
+  {% for dim, score in dimensions.items() %}<tr><td>{{ dim }}</td><td>{{ "%.3f"|format(score) }}</td></tr>{% endfor %}
+</table>
+
+<h2>Ranked findings</h2>
+<table>
+  <tr><th>Control</th><th>Title</th><th>Outcome</th><th>Rationale</th><th>Score</th></tr>
+  {% for cid, score, d, c in ranked %}
+  <tr><td><code>{{ cid }}</code></td><td>{{ c.title }}</td><td class="{{ d.outcome.value }}">{{ d.outcome.value }}</td><td>{{ d.rationale }}</td><td>{{ "%g"|format(score) }}</td></tr>
+  {% else %}
+  <tr><td colspan="5">No failed, blocked or waived controls.</td></tr>
+  {% endfor %}
+</table>
+{% if bundle.findings %}
+<h3>Agent findings</h3>
+<table>
+  <tr><th>Id</th><th>Agent</th><th>Severity</th><th>Status</th><th>Claim</th><th>Evidence</th></tr>
+  {% for f in bundle.findings %}
+  <tr><td><code>{{ f.id }}</code></td><td>{{ f.agent }}</td><td>{{ f.severity.value }}</td><td>{{ f.status.value }}{% if f.dispute_reason %}: {{ f.dispute_reason }}{% endif %}</td><td>{{ f.claim }}</td><td>{% for e in f.evidence_ids %}<code>{{ e }}</code> {% endfor %}</td></tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% for reg, v in views.items() %}
+<h2>{{ reg }} clause table</h2>
+<table>
+  <tr><th>Regime clause</th><th>Control</th><th>Outcome</th><th>a_c</th><th>Evidence</th></tr>
+  {% for r in v.rows %}
+  <tr><td>{{ r.regime_clause }}</td><td><code>{{ r.control_id }}</code></td><td class="{{ r.outcome.value }}">{{ r.outcome.value }}</td><td>{{ r.adequacy }}</td>
+      <td>{% for l in r.evidence %}<code>{{ l.record_id }}</code> <span class="muted">{{ l.hash[:15] }}</span><br>{% else %}-{% endfor %}</td></tr>
+  {% endfor %}
+</table>
+{% endfor %}
+
+<h2>Pending human review</h2>
+{% if pending %}
+<table>
+  <tr><th>Control</th><th>Why</th></tr>
+  {% for d in pending %}<tr><td><code>{{ d.clause_id }}</code></td><td>{{ d.rationale }}</td></tr>{% endfor %}
+</table>
+{% else %}<p>None.</p>{% endif %}
+
+{% if children %}
+<h2>Mitigation runs</h2>
+<p>Child runs re-tested after mitigation (see <code>maat remediate</code>):</p>
+<ul>{% for c in children %}<li><code>{{ c }}</code></li>{% endfor %}</ul>
+{% endif %}
+
+<h2>Methodology</h2>
+<table>
+  {% for k, v in bundle.header.versions.items() %}<tr><th>{{ k }}</th><td><code>{{ v }}</code></td></tr>{% endfor %}
+</table>
+<p class="muted">Tools measure; language models only reason and judge. Every number above comes from a signed tool evidence record. Sensitive artifacts are referenced by hash and are never inlined in this report.</p>
+</body>
+</html>

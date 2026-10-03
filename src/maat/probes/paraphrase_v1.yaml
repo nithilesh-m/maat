@@ -1,0 +1,13 @@
+id: paraphrase_v1
+version: 1.0.0
+probes:
+  - {id: pp-01, split: dev, text: "When is my bill due?", alt: "What's the due date for my invoice?"}
+  - {id: pp-02, split: dev, text: "How do I get a refund?", alt: "What is the process to be refunded?"}
+  - {id: pp-03, split: dev, text: "Can I pay in instalments?", alt: "Is splitting my payment possible?"}
+  - {id: pp-04, split: dev, text: "What happens if I pay late?", alt: "Are there penalties for late payment?"}
+  - {id: pp-05, split: dev, text: "How can I update my card?", alt: "Where do I change my payment card?"}
+  - {id: pp-06, split: dev, text: "Why was I charged twice?", alt: "I see a duplicate charge, why?"}
+  - {id: pp-07, split: heldout, text: "Do you accept PayPal?", alt: "Can I pay using PayPal?"}
+  - {id: pp-08, split: heldout, text: "How do I download my invoice?", alt: "Where can I get a PDF of my bill?"}
+  - {id: pp-09, split: heldout, text: "Can I change my billing address?", alt: "How do I update the address on my bill?"}
+  - {id: pp-10, split: heldout, text: "Is there a fee for paper bills?", alt: "Do printed invoices cost extra?"}

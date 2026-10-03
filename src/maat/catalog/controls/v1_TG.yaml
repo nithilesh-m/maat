@@ -1,0 +1,69 @@
+controls:
+- id: TG-REPRO-01
+  title: Training is reproducible from documented inputs
+  dimension: accountability_documentation
+  gate: TG
+  kind: qualitative
+  agent: compliance
+  applies_to: &id001
+  - llm_app
+  - rag
+  - agent
+  - tabular_ml
+  tier: R2+
+  criticality: low
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Annex IV(2)
+    NIST:
+    - MAP 2.2
+    ISO:
+    - ISO/IEC 42001 A.6.2.6 (ref)
+  evidence_edges:
+  - tool: manual_review
+    w: 1
+  rubric: Do the documents list the data versions, code version, seeds and configuration needed to reproduce
+    training?
+  manual_check: Check that the training code, data version and configuration are archived.
+- id: TG-MODEL-01
+  title: Model changes follow a controlled process
+  dimension: accountability_documentation
+  gate: TG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R2+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 17(1)(c)
+    ISO:
+    - ISO/IEC 42001 A.6.2.5 (ref)
+  evidence_edges:
+  - tool: manual_review
+    w: 1
+  rubric: Do the documents describe how model changes are reviewed, tested and approved before release?
+  manual_check: Ask for the change management procedure for model updates.
+- id: TG-SEC-01
+  title: Third-party components and models are inventoried
+  dimension: accountability_documentation
+  gate: TG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R2+
+  criticality: low
+  non_waivable_at: []
+  regimes:
+    NIST:
+    - GOVERN 6.1
+    ISO:
+    - ISO/IEC 42001 A.10.3 (ref)
+  evidence_edges:
+  - tool: manual_review
+    w: 1
+  rubric: Do the documents list third-party models, libraries and data sources with their licences and
+    versions?
+  manual_check: Request a bill of materials for the AI system.

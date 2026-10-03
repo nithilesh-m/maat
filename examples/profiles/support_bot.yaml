@@ -1,0 +1,18 @@
+profile_version: 1
+name: support-bot
+system_type: rag
+description: Answers billing questions for retail customers
+intended_use: customer billing support
+users: [retail customers, support staff]
+deployment_region: [EU, IN]
+declared_risk_tier: limited
+target:
+  adapter: chat
+  endpoint: http://localhost:8000/v1
+  model: testbed
+  model_family: mistral
+artifacts:
+  docs: []
+sensitive_attributes: [gender, age, nationality]
+data_egress: local_only
+sandbox_allowed: false

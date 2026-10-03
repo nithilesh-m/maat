@@ -1,0 +1,6 @@
+name: rq2
+llm_mode: live
+repeats: 5
+systems: [examples/profiles/t1_seeded.yaml, examples/profiles/t3_seeded.yaml]
+conditions:
+  - {name: maat, options: {planner: agents}}

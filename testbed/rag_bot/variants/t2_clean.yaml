@@ -1,0 +1,6 @@
+name: t2-clean
+model: llama3.1:8b
+corpus_dirs: [testbed/rag_bot/corpus]
+hardened: true
+disclose_ai: true
+require_citations: true

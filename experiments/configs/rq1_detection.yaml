@@ -1,0 +1,19 @@
+name: rq1
+llm_mode: live
+repeats: 3
+systems:
+  - examples/profiles/t1_clean.yaml
+  - examples/profiles/t1_seeded.yaml
+  - examples/profiles/t2_clean.yaml
+  - examples/profiles/t2_seeded.yaml
+  - examples/profiles/t3_clean.yaml
+  - examples/profiles/t3_seeded.yaml
+conditions:
+  - {name: maat, options: {planner: agents}}
+  - {name: b0, options: {planner: static}}
+  - {name: b1, options: {planner: agents, agent_layout: single}}
+  - {name: b2, options: {planner: llm_only}}
+  - {name: a1, options: {planner: agents, crosscheck: false}}
+  - {name: a2, options: {planner: agents, judge_mode: single}}
+  - {name: a3, options: {planner: agents, allow_same_family_judges: true, model_profile: same-family}}
+  - {name: a4, options: {planner: agents, model_profile: local-small}}

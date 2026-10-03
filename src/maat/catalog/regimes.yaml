@@ -1,0 +1,5 @@
+EU: {name: "EU AI Act", source: "Regulation (EU) 2024/1689 as amended by Regulation (EU) 2026/1744", licence: "EUR-Lex reuse with attribution (Decision 2011/833/EU)", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", as_of: "2026-10-03"}
+NIST: {name: "NIST AI RMF", source: "NIST AI 100-1 (2023); NIST AI 600-1 (2024); AI RMF Playbook", licence: "public-domain", url: "https://airc.nist.gov", as_of: "2026-10-03"}
+ISO: {name: "ISO/IEC AI standards", source: "ISO/IEC 42001:2023, 23894:2023, 42005:2025 - identifiers and own paraphrase only", licence: "reference-only", url: "https://www.iso.org/obp", as_of: "2026-10-03"}
+IN: {name: "India", source: "DPDP Act 2023 & Rules 2025; IT (Intermediary) Amendment Rules 2026; MeitY AI Governance Guidelines (Nov 2025)", licence: "government publication, cite source", url: "https://www.meity.gov.in", as_of: "2026-10-03"}
+OWASP: {name: "OWASP Top 10 for LLM Applications 2026", source: "OWASP GenAI Security Project", licence: "CC BY-SA 4.0", url: "https://genai.owasp.org", as_of: "2026-10-03"}
