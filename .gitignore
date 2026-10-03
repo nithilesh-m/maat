@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .ruff_cache/
-runs/
+/runs/
 *.sqlite-wal
 *.sqlite-shm
 .env
@@ -12,8 +12,8 @@ web/.next/
 .superpowers/
 testbed/tabular_credit/data/
 testbed/rag_bot/__pycache__/
-data/
-runs-e2e/
+/data/
+/runs-e2e/
 
 # docs (plans, specs, notes) stay local; the frozen API schema is read by tests/api/test_contract.py
 docs/*
@@ -47,8 +47,8 @@ web/coverage/
 web/*.tmp.mjs
 
 # local run data, results and demo artefacts
-runs/
-runs-e2e/
+/runs/
+/runs-e2e/
 experiments/results/
 demo-files/
 *.tmp.mjs
