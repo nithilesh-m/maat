@@ -1,0 +1,115 @@
+controls:
+- id: DG-DATA-01
+  title: Training or retrieval data is representative of the intended population
+  dimension: fairness
+  gate: DG
+  kind: qualitative
+  agent: compliance
+  applies_to: &id001
+  - llm_app
+  - rag
+  - agent
+  - tabular_ml
+  tier: R2+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 10(3)
+    NIST:
+    - MAP 2.3
+    ISO:
+    - ISO/IEC 42001 A.7.4 (ref)
+  evidence_edges:
+  - tool: check_doc_completeness
+    w: 2
+  rubric: Do the documents describe who or what the data covers and justify why it is representative of
+    the intended users and use?
+- id: DG-DATA-02
+  title: Data provenance is documented
+  dimension: accountability_documentation
+  gate: DG
+  kind: quantitative
+  agent: compliance
+  applies_to: *id001
+  tier: R1+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 10(2)(b)
+    NIST:
+    - MAP 2.1
+    ISO:
+    - ISO/IEC 42001 A.7.5 (ref)
+  evidence_edges:
+  - tool: check_doc_completeness
+    w: 2
+  predicate:
+    tool: check_doc_completeness
+    metric: completeness
+    op: ge
+    threshold: doc_completeness_min
+- id: DG-DATA-03
+  title: Personal data in training or retrieval data is minimised
+  dimension: privacy
+  gate: DG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R2+
+  criticality: high
+  non_waivable_at:
+  - high
+  regimes:
+    EU:
+    - AI Act Art. 10(5)
+    NIST:
+    - MEASURE 2.10
+    IN:
+    - DPDP Act 2023 s.8(7)
+  evidence_edges:
+  - tool: check_doc_completeness
+    w: 2
+  rubric: Do the documents state which personal data the data set contains and why each category is necessary?
+- id: DG-DATA-04
+  title: Bias examination of the data has been performed
+  dimension: fairness
+  gate: DG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R2+
+  criticality: high
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 10(2)(f)
+    NIST:
+    - MAP 2.3
+    - MEASURE 2.11
+  evidence_edges:
+  - tool: check_doc_completeness
+    w: 2
+  rubric: Do the documents record a bias examination of the data, with the groups examined and the findings?
+- id: DG-DATA-05
+  title: Processing of special-category data is justified
+  dimension: privacy
+  gate: DG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R3
+  criticality: high
+  non_waivable_at:
+  - high
+  regimes:
+    EU:
+    - AI Act Art. 10(5)
+    IN:
+    - DPDP Act 2023 s.7
+  evidence_edges:
+  - tool: check_doc_completeness
+    w: 2
+  rubric: If special-category data is processed for bias detection, do the documents justify strict necessity
+    and list safeguards?

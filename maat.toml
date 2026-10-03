@@ -1,0 +1,38 @@
+profile = "local"
+llm_mode = "record"            # live | record | replay
+
+[models.local]
+orchestrator = "ollama:qwen3.6:27b"
+specialists  = "ollama:qwen3.6:27b"
+judges       = ["ollama:qwen3.6:27b", "ollama:gemma4:26b", "ollama:gpt-oss:20b"]
+tool_llm     = "ollama:gpt-oss:20b"
+guard        = "ollama:llama-guard3:8b"
+embeddings   = "ollama:nomic-embed-text"
+
+[models.same-family]   # ablation A3: a judge shares the Mistral family with the testbed bots
+orchestrator = "ollama:qwen3.6:27b"
+specialists  = "ollama:qwen3.6:27b"
+judges       = ["ollama:qwen3.6:27b", "ollama:gemma4:26b", "ollama:mistral-small3.2"]
+tool_llm     = "ollama:gpt-oss:20b"
+guard        = "ollama:llama-guard3:8b"
+embeddings   = "ollama:nomic-embed-text"
+
+[models.local-small]
+orchestrator = "ollama:gemma4:12b"
+specialists  = "ollama:gemma4:12b"
+judges       = ["ollama:qwen3.6:14b", "ollama:gemma4:12b", "ollama:gpt-oss:20b"]
+tool_llm     = "ollama:gpt-oss:20b"
+guard        = "ollama:llama-guard3:1b"
+embeddings   = "ollama:nomic-embed-text"
+
+[ollama]
+base_url = "http://localhost:11434"
+temperature = 0
+seed = 42
+keep_alive = "30m"
+timeout = 600
+
+[budgets]
+max_tool_calls_per_agent = 40
+max_llm_calls_per_agent = 60
+max_retries = 2

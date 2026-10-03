@@ -1,0 +1,4 @@
+[[users]]
+name = "admin"
+role = "admin"
+token_sha256 = "<sha256 of your token>"   # python -c "import hashlib;print(hashlib.sha256(b'TOKEN').hexdigest())"

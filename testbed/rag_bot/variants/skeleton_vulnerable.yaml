@@ -1,0 +1,4 @@
+name: t1-skeleton-vulnerable
+model: mistral-small3.2
+hardened: false
+disclose_ai: false

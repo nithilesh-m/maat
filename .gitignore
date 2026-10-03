@@ -1,0 +1,54 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+/runs/
+*.sqlite-wal
+*.sqlite-shm
+.env
+web/node_modules/
+web/.next/
+.superpowers/
+testbed/tabular_credit/data/
+testbed/rag_bot/__pycache__/
+/data/
+/runs-e2e/
+
+# docs (plans, specs, notes) stay local; the frozen API schema is read by tests/api/test_contract.py
+docs/*
+!docs/api/
+docs/api/*
+!docs/api/openapi-v1.json
+
+# OS / editor / tool state
+.DS_Store
+.claude/
+.hypothesis/
+.mypy_cache/
+.idea/
+.vscode/
+
+# Python / uv build output
+dist/
+build/
+*.egg-info/
+.coverage
+htmlcov/
+
+# web: deps, build output, test artifacts
+web/node_modules/
+web/.next/
+web/out/
+web/tsconfig.tsbuildinfo
+web/test-results/
+web/playwright-report/
+web/coverage/
+web/*.tmp.mjs
+
+# local run data, results and demo artefacts
+/runs/
+/runs-e2e/
+experiments/results/
+demo-files/
+*.tmp.mjs

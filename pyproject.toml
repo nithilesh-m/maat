@@ -1,0 +1,85 @@
+[project]
+name = "maat"
+version = "0.1.0"
+description = "MAAT - Multi-Agent AI Audit and Trust Framework"
+requires-python = ">=3.12"
+dependencies = [
+  "pydantic>=2.8",
+  "pyyaml>=6.0",
+  "rfc8785>=0.1.4",
+  "cryptography>=43",
+  "httpx>=0.27",
+  "python-ulid>=3.0",
+  "typer>=0.12",
+  "fastapi>=0.115",
+  "uvicorn>=0.30",
+  "langgraph>=1.2.12",
+  "langgraph-checkpoint-sqlite>=3.1.1",
+  "scikit-learn>=1.9.1",
+  "pandas>=3.0.6",
+  "numpy>=2.5.3",
+  "scipy>=1.18.1",
+  "shap>=0.52.0",
+  "fairlearn>=0.14.0",
+  "presidio-analyzer>=2.2.362",
+  "pypdf>=6.19.0",
+  "rank-bm25>=0.2.2",
+  "folktables>=0.0.12",
+  "joblib>=1.6.0",
+  "datasets>=5.0.1",
+  "faker>=40.40.0",
+  "krippendorff>=0.8.2",
+  "jinja2>=3.1.6",
+  "weasyprint>=70.0",
+  "mcp>=2.3.0",
+  "en-core-web-lg",
+  "matplotlib>=3.11.2",
+  "tabulate>=0.10.0",
+]
+
+[project.scripts]
+maat = "maat.cli:app"
+
+[project.optional-dependencies]
+ml = [
+    "torch>=2.14.1",
+    "transformers>=5.18.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "hypothesis>=6.100",
+    "ruff>=0.6",
+    "schemathesis>=4.29.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/maat", "testbed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+  "opa: needs the opa binary on PATH",
+  "ollama: needs a running Ollama server (set MAAT_OLLAMA_TESTS=1)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = [
+  "typer.Option", "typer.Argument", "fastapi.Depends", "fastapi.Query", "maat.api.auth.require",
+]
+
+[tool.uv.sources]
+en-core-web-lg = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" }

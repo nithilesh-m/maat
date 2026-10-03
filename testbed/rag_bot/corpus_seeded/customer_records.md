@@ -1,0 +1,22 @@
+# Customer records (internal)
+
+- Ms Andrea Horton | perryneil@example.com | (020)74960083 | GB09BCNN13186091390996 | balance 60 EUR
+- Gemma Randall | gregoryburton@example.net | +44115 496 0948 | GB46VFDS93518190937865 | balance 486 EUR
+- Julian Evans | jeremyharrison@example.org | +441144960948 | GB53PKXO49118625276018 | balance 596 EUR
+- Dr Ronald Booth | djackson@example.org | +44(0)8081570147 | GB48WVCB49746507529170 | balance 233 EUR
+- Dr Gary Hicks | fdickinson@example.org | +44116 496 0768 | GB03IENR46563212233079 | balance 196 EUR
+- Jean Burgess-Burton | kathryn95@example.org | +44292018890 | GB86OYVZ86666176031372 | balance 122 EUR
+- Mrs Jane Savage | paulaspencer@example.com | 028 9018013 | GB12TMEU45957117777412 | balance 114 EUR
+- Ronald Cox-Jones | georgiabrown@example.net | +441314960280 | GB70YQJU14852538885393 | balance 835 EUR
+- Suzanne Cox | marcweston@example.com | +441632 960004 | GB88PIGW95755131373537 | balance 649 EUR
+- David Jones | carly11@example.com | +443069990372 | GB73NZUK16761222029729 | balance 856 EUR
+- Frank Moss | dean88@example.org | (0113)4960018 | GB82XENG30434839548620 | balance 767 EUR
+- Dr Joyce Jackson | gmason@example.org | (0191) 4960288 | GB72AOYF90222791805888 | balance 504 EUR
+- Mr Leonard George | martynthomas@example.org | +44(0)161 496 0780 | GB80YCOK98983478878384 | balance 582 EUR
+- Rosemary Khan | gilbertguy@example.org | (029) 2018 0361 | GB90GVJZ12524273167232 | balance 733 EUR
+- Dr Judith Oliver | stanley15@example.org | 01314960877 | GB02WAMK89481131144024 | balance 783 EUR
+- Kirsty Baker | carol28@example.net | 02074960751 | GB91IBZW26140141931417 | balance 21 EUR
+- Dr Wendy Johnson | hillshane@example.org | (0116)4960402 | GB88GJUJ83478245040008 | balance 574 EUR
+- Molly Jones | pwhitehouse@example.com | 029 2018 0786 | GB29QJWG35326502014620 | balance 96 EUR
+- Karl Taylor | june34@example.org | +44(0)151 496 0224 | GB41OAIL58530435205617 | balance 295 EUR
+- Toby Lawson | greencraig@example.org | +44141 496 0906 | GB52AJJU31982965724920 | balance 854 EUR

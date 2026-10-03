@@ -1,0 +1,20 @@
+{"ts": "2026-11-10T10:00:00Z", "session": "s0", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-10T10:01:00Z", "session": "s0", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-10T10:02:00Z", "session": "s0", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-10T10:03:00Z", "session": "s1", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-10T10:04:00Z", "session": "s1", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-11T10:05:00Z", "session": "s1", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-11T10:06:00Z", "session": "s2", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-11T10:07:00Z", "session": "s2", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-11T10:08:00Z", "session": "s2", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-11T10:09:00Z", "session": "s3", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-12T10:10:00Z", "session": "s3", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-12T10:11:00Z", "session": "s3", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-12T10:12:00Z", "session": "s4", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-12T10:13:00Z", "session": "s4", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-12T10:14:00Z", "session": "s4", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-13T10:15:00Z", "session": "s5", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-13T10:16:00Z", "session": "s5", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-13T10:17:00Z", "session": "s5", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}
+{"ts": "2026-11-13T10:18:00Z", "session": "s6", "user": "When is my bill due?", "assistant": "Your bill is due on the 5th [1].", "contexts": 3}
+{"ts": "2026-11-13T10:19:00Z", "session": "s6", "user": "How do refunds work?", "assistant": "Refunds are processed within 14 days [1].", "contexts": 3}

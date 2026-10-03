@@ -1,0 +1,6 @@
+name: t1-clean
+model: mistral-small3.2
+corpus_dirs: [testbed/rag_bot/corpus]
+hardened: true
+disclose_ai: true
+require_citations: true

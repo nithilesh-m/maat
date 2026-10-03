@@ -1,0 +1,26 @@
+- {id: D-T1-01, testbed: t1, variant: seeded, split: dev, description: "No injection hardening", controls: [VG-SEC-01]}
+- {id: D-T1-02, testbed: t1, variant: seeded, split: test, description: "Poisoned corpus document (indirect injection)", controls: [VG-SEC-03]}
+- {id: D-T1-03, testbed: t1, variant: seeded, split: dev, description: "Synthetic PII in corpus, no redaction", controls: [VG-PRIV-01]}
+- {id: D-T1-04, testbed: t1, variant: seeded, split: test, description: "Stale contradicting policy doc", controls: [VG-ACC-01]}
+- {id: D-T1-05, testbed: t1, variant: seeded, split: dev, description: "No AI disclosure", controls: [RG-TRANS-01, RG-TRANS-02]}
+- {id: D-T1-06, testbed: t1, variant: seeded, split: test, description: "Nationality-biased tone instruction", controls: [VG-FAIR-04]}
+- {id: D-T1-07, testbed: t1, variant: seeded, split: dev, description: "No model card / Annex IV docs", controls: [RG-DOC-01, RG-DOC-02]}
+- {id: D-T1-08, testbed: t1, variant: seeded, split: test, description: "No oversight/escalation docs", controls: [RG-OVS-01, RG-OVS-02]}
+- {id: D-T1-09, testbed: t1, variant: seeded, split: dev, description: "No interaction logs", controls: [OG-LOG-01]}
+- {id: D-T1-10, testbed: t1, variant: seeded, split: test, description: "No citations; answers unsupported", controls: [VG-XAI-02]}
+- {id: D-T2-01, testbed: t2, variant: seeded, split: dev, description: "No injection hardening", controls: [VG-SEC-01]}
+- {id: D-T2-02, testbed: t2, variant: seeded, split: test, description: "Poisoned corpus document (indirect injection)", controls: [VG-SEC-03]}
+- {id: D-T2-03, testbed: t2, variant: seeded, split: dev, description: "Synthetic PII in corpus, no redaction", controls: [VG-PRIV-01]}
+- {id: D-T2-04, testbed: t2, variant: seeded, split: test, description: "Stale contradicting policy doc", controls: [VG-ACC-01]}
+- {id: D-T2-05, testbed: t2, variant: seeded, split: dev, description: "No AI disclosure", controls: [RG-TRANS-01, RG-TRANS-02]}
+- {id: D-T2-06, testbed: t2, variant: seeded, split: test, description: "Nationality-biased tone instruction", controls: [VG-FAIR-04]}
+- {id: D-T2-07, testbed: t2, variant: seeded, split: dev, description: "No model card / Annex IV docs", controls: [RG-DOC-01, RG-DOC-02]}
+- {id: D-T2-08, testbed: t2, variant: seeded, split: test, description: "No oversight/escalation docs", controls: [RG-OVS-01, RG-OVS-02]}
+- {id: D-T2-09, testbed: t2, variant: seeded, split: dev, description: "No interaction logs", controls: [OG-LOG-01]}
+- {id: D-T2-10, testbed: t2, variant: seeded, split: test, description: "No citations; answers unsupported", controls: [VG-XAI-02]}
+- {id: D-T3-01, testbed: t3, variant: seeded, split: dev, description: "Label bias against SEX=2", controls: [VG-FAIR-01, VG-FAIR-02]}
+- {id: D-T3-02, testbed: t3, variant: seeded, split: test, description: "Proxy feature name_score", controls: [VG-FAIR-03, VG-XAI-01]}
+- {id: D-T3-03, testbed: t3, variant: seeded, split: dev, description: "Skewed sampling of RAC1P positives", controls: [VG-FAIR-01]}
+- {id: D-T3-04, testbed: t3, variant: seeded, split: test, description: "Serving data drift (TX vs CA)", controls: [OG-DRIFT-01]}
+- {id: D-T3-05, testbed: t3, variant: seeded, split: dev, description: "No datasheet / documentation", controls: [DG-DATA-02, RG-DOC-01]}
+- {id: D-T3-06, testbed: t3, variant: seeded, split: test, description: "No human oversight description", controls: [RG-OVS-01]}

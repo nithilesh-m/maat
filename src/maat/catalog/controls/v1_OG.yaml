@@ -1,0 +1,201 @@
+controls:
+- id: OG-LOG-01
+  title: Interaction logs are kept
+  dimension: accountability_documentation
+  gate: OG
+  kind: quantitative
+  agent: compliance
+  applies_to: &id001
+  - llm_app
+  - rag
+  - agent
+  - tabular_ml
+  tier: R1+
+  criticality: high
+  non_waivable_at:
+  - high
+  regimes:
+    EU:
+    - AI Act Art. 12
+    NIST:
+    - MEASURE 3.3
+    ISO:
+    - ISO/IEC 42001 A.6.2.8 (ref)
+  evidence_edges:
+  - tool: check_logging_and_oversight
+    w: 3
+  predicate:
+    tool: check_logging_and_oversight
+    metric: logging_evidence
+    op: ge
+    threshold: logging_evidence_min
+- id: OG-LOG-02
+  title: Logs are retained for an appropriate period
+  dimension: accountability_documentation
+  gate: OG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R2+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 19
+    IN:
+    - DPDP Act 2023 s.8(7)
+  evidence_edges:
+  - tool: check_logging_and_oversight
+    w: 1
+  - tool: manual_review
+    w: 1
+  rubric: Do the documents state a log retention period and justify it?
+  manual_check: Ask the operator for the log retention policy.
+- id: OG-MON-01
+  title: A post-market monitoring plan exists
+  dimension: accountability_documentation
+  gate: OG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R2+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 72
+    NIST:
+    - MEASURE 3.1
+    - MANAGE 4.1
+  evidence_edges:
+  - tool: check_doc_completeness
+    w: 2
+  rubric: Do the documents describe how performance and risks are monitored after deployment, and how
+    often?
+- id: OG-MON-02
+  title: Drift findings trigger a documented response
+  dimension: accountability_documentation
+  gate: OG
+  kind: qualitative
+  agent: compliance
+  applies_to: &id002
+  - tabular_ml
+  tier: R2+
+  criticality: low
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 72
+    NIST:
+    - MANAGE 4.1
+  evidence_edges:
+  - tool: detect_drift
+    w: 1
+  - tool: check_doc_completeness
+    w: 1
+  rubric: Do the documents say what is done when input drift is detected?
+- id: OG-DRIFT-01
+  title: Input drift is within tolerance
+  dimension: robustness_security
+  gate: OG
+  kind: quantitative
+  agent: risk
+  applies_to: *id002
+  tier: R1+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 72(2)
+    NIST:
+    - MEASURE 2.4
+  evidence_edges:
+  - tool: detect_drift
+    w: 3
+  predicate:
+    tool: detect_drift
+    metric: drift_share
+    op: le
+    threshold: drift_share_max
+- id: OG-INC-01
+  title: A serious-incident process exists
+  dimension: accountability_documentation
+  gate: OG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R2+
+  criticality: high
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 73
+    NIST:
+    - MANAGE 4.3
+  evidence_edges:
+  - tool: manual_review
+    w: 1
+  rubric: Do the documents describe how serious incidents are detected, escalated and reported to authorities?
+  manual_check: Ask the operator for the incident response procedure and the contact for authority reporting.
+- id: OG-SEC-01
+  title: Cybersecurity measures are documented
+  dimension: robustness_security
+  gate: OG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R2+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    EU:
+    - AI Act Art. 15(5)
+    NIST:
+    - MEASURE 2.7
+    ISO:
+    - ISO/IEC 42001 A.6.2.5 (ref)
+  evidence_edges:
+  - tool: check_doc_completeness
+    w: 2
+  rubric: Do the documents describe measures against attacks on the model, the data and the infrastructure?
+  manual_check: Ask the operator for the security assessment of the AI system.
+- id: OG-IN-01
+  title: Grievance and takedown readiness for India deployment
+  dimension: accountability_documentation
+  gate: OG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R1+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    IN:
+    - IT Rules 2026 (synthetic content labelling)
+    - MeitY AI Governance Guidelines (Nov 2025)
+  evidence_edges:
+  - tool: manual_review
+    w: 1
+  rubric: Do the documents name a grievance officer and describe how takedown requests are handled within
+    the required time?
+  manual_check: Check that a grievance officer is named and a takedown process exists.
+- id: OG-IN-02
+  title: Consent and notice for personal data processing (India)
+  dimension: privacy
+  gate: OG
+  kind: qualitative
+  agent: compliance
+  applies_to: *id001
+  tier: R1+
+  criticality: medium
+  non_waivable_at: []
+  regimes:
+    IN:
+    - DPDP Act 2023 s.5
+    - DPDP Act 2023 s.6
+  evidence_edges:
+  - tool: manual_review
+    w: 1
+  rubric: Do the documents describe the notice given to data principals and how consent is obtained and
+    withdrawn?
+  manual_check: Review the privacy notice and consent flow.

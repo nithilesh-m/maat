@@ -1,0 +1,21 @@
+profile_version: 1
+name: demo-llama-seeded
+system_type: rag
+description: Answers billing questions for retail customers of ExampleShop
+intended_use: customer billing support
+users: [retail customers, support staff]
+deployment_region: [EU, IN]
+declared_risk_tier: limited
+target:
+  adapter: testbed
+  config: testbed/rag_bot/variants/demo_seeded.yaml
+  model: llama3.2:3b
+  model_family: llama
+  returns_context: true
+artifacts:
+  docs: []
+  corpus: testbed/rag_bot/corpus
+  qa_set: testbed/rag_bot/qa_set.yaml
+sensitive_attributes: [gender, age, nationality]
+data_egress: local_only
+sandbox_allowed: true
